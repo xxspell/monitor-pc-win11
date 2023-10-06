@@ -1,24 +1,26 @@
-name: tg-notify
-on: [push, pull_request]
+name: Notify on Telegram
+on:
+  fork:
+  push:
+  release:
+  issue_comment:
+    types: created
+  watch:
+    types: started
+  pull_request_review_comment:
+    types: created
+  pull_request:
+    types: [opened, closed, reopened]
+  issues:
+    types: [opened, pinned, closed, reopened]
 jobs:
-  build:
+  notify:
     runs-on: ubuntu-latest
     steps:
-    - name: Update status
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        format: markdown
-        message: |  #https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context
-            [►](https://github.com/${{ github.repository }}) *New commit at ${{ github.repository }}*
-
-            ◄ [${{ github.actor }}](github.com/${{ github.actor }}) created commit:
-
-            *► Commit message:* ${{ github.event.head_commit.message }}
-
-            *◄ Repository:* [${{ github.repository }}](github.com/${{ github.repository }})
-
-            *► Branch:* ${{ github.ref_name }}
-
-            *◄ See changes:* https://github.com/${{ github.repository }}/commit/${{github.sha}}
+      - uses: actions/checkout@v3
+      - name: Notify the commit on Telegram.
+        uses: EverythingSuckz/github-telegram-notify@main
+        with:
+          bot_token: '${{ secrets.TELEGRAM_TOKEN }}'
+          chat_id: '${{ secrets.TELEGRAM_TO }}'
+          topic_id: '${{ secrets.TOPIC_ID }}'
