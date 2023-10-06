@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "monitor-pc-win11"
+version = "0.1.0"
+description = ""
+authors = ["hachimaru <74972395+xxspell@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyqt5 = "^5.15.9"
+psutil = "^5.9.5"
+pywin32 = "^306"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.0.292"
+pre-commit = "^3.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+ignore = [
+        "F811",
+        "E203"
+        ]
+line-length = 120
