@@ -7,16 +7,7 @@ import time
 import threading
 import signal
 import sys
-import win32com.client
 import subprocess
-
-
-def get_cpu_usage():
-    wmi = win32com.client.GetObject("winmgmts:")
-    cpu_info = wmi.ExecQuery("SELECT LoadPercentage FROM Win32_Processor")
-
-    for cpu in cpu_info:
-        return cpu.LoadPercentage
 
 
 class BaseWidget(QWidget):
