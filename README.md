@@ -1,1 +1,0 @@
-# monitor-pc-win11
