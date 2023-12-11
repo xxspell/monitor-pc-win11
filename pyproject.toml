@@ -14,7 +14,7 @@ pywin32 = "^306"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.7"
-pre-commit = "^3.5.0"
+pre-commit = "^3.6.0"
 
 [build-system]
 requires = ["poetry-core"]
