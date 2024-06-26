@@ -7,16 +7,16 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-pyqt5 = "^5.15.9"
-psutil = "^5.9.5"
+psutil = "^5.9.7"
+pyqt5 = "^5.15.10"
 pywin32 = "^306"
 asyncqt = "^0.8.0"
 requests = "^2.32.3"
 
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.0.292"
-pre-commit = "^3.4.0"
+ruff = "^0.1.8"
+pre-commit = "^3.6.0"
 
 [build-system]
 requires = ["poetry-core"]
